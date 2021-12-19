@@ -13,15 +13,19 @@ const TaskWrapper = styled.div`
 
 const TaskText = styled.p`
 	cursor: pointer;
+	/* text-overflow: ellipsis; */
+	overflow-wrap: anywhere;
+	/* max-width: 800px; */
 `;
 
 const TaskDeleteBtn = styled.div`
-	width: 15px;
+	min-width: 15px;
 	height: 15px;
 	background-color: transparent;
 	border: none;
 	outline: none;
 	cursor: pointer;
+	margin-left: 15px;
 
 	img {
 		width: 100%;

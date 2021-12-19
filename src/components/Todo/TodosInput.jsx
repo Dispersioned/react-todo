@@ -6,6 +6,7 @@ const InputWrapper = styled.form`
 	grid-auto-flow: column;
 	column-gap: 25px;
 	align-items: stretch;
+	justify-content: center;
 `;
 
 const StyledInput = styled.input`
@@ -42,6 +43,7 @@ function TodosInput({ addNewTask }) {
 
 	const onSubmit = (e) => {
 		e.preventDefault();
+		setTodoText('');
 		addNewTask(todoText);
 	};
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import TodosList from './TodosList';
 import TodosInput from './TodosInput';
@@ -11,7 +11,21 @@ const TodosWrapper = styled.div`
 `;
 
 function Todos() {
-	const [todos, setTodos] = useState([]);
+	const getDataFromLocalStorage = () => {
+		let data = localStorage.getItem('todos');
+		if (!data) return [];
+		return JSON.parse(data);
+	};
+
+	const setDataToLocalStorage = (data) => {
+		localStorage.setItem('todos', JSON.stringify(data));
+	};
+
+	const [todos, setTodos] = useState(getDataFromLocalStorage());
+
+	useEffect(() => {
+		setDataToLocalStorage(todos);
+	}, [todos]);
 
 	const addNewTask = (text) => {
 		if (text === '') return;
