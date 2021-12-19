@@ -45,12 +45,6 @@ function TodosInput({ addNewTask }) {
 		addNewTask(todoText);
 	};
 
-	// const addNewTask = (e) => {
-	// 	e.preventDefault();
-	// 	if (todoText === '') return;
-	// 	setTodos([...todos, { text: todoText, id: Date.now(), isDone: false }]);
-	// };
-
 	return (
 		<InputWrapper>
 			<StyledInput value={todoText} onChange={updateTodoText} placeholder='Enter new task' />
