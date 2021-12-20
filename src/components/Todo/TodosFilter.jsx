@@ -1,14 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
-function TodosFilter() {
+const StyledSelect = styled.select`
+	padding: 7px 5px;
+	brdr: 3px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	background-color: rgb(218, 221, 228);
+`;
+
+function TodosFilter({ options, sortTasks }) {
+	const [selectedSort, setSelectedSort] = useState('');
+
+	const handleChange = (e) => {
+		setSelectedSort(e.target.value);
+		sortTasks(e.target.value);
+	};
+
 	return (
-		<div>
-			<select>
-				<option value={null}>По названию</option>
-				<option value={null}>По дате</option>
-			</select>
-		</div>
-	)
+		<StyledSelect value={selectedSort} onChange={handleChange}>
+			<option disabled value=''>
+				Sort by
+			</option>
+			{options.map((option) => {
+				return (
+					<option value={option.value} key={option.value}>
+						{option.name}
+					</option>
+				);
+			})}
+		</StyledSelect>
+	);
 }
 
-export default TodosFilter
+export default TodosFilter;

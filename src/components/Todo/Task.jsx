@@ -9,6 +9,7 @@ const TaskWrapper = styled.div`
 	background-color: ${(props) => (props.isDone ? 'rgb(30, 128, 27)' : 'rgb(218, 221, 228)')};
 	padding: 7px 15px;
 	font-size: 18px;
+	border-radius: 2px;
 `;
 
 const TaskText = styled.p`
@@ -48,7 +49,7 @@ function Task({ task, index, deleteTask, togleDoneStatus }) {
 	};
 
 	let taskDate = new Date(+task.date)
-	// TODO: add exact time hh:ss and UTC choose option
+	// TODO: add exact time hh:ss and UTC choose option.
 
 	return (
 		<TaskWrapper isDone={task.isDone}>

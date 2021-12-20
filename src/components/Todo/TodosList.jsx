@@ -3,9 +3,8 @@ import styled from 'styled-components';
 import Task from './Task';
 
 const StyledTodosList = styled.div`
-	margin-top: 15px;
 	display: grid;
-	row-gap: 15px;
+	row-gap: 20px;
 `;
 
 const NoNewTasks = styled.div`
