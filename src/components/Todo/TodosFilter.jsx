@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 const StyledSelect = styled.select`
 	padding: 7px 5px;
-	brdr: 3px;
 	border: none;
+	border-radius: 2px;
 	outline: none;
 	cursor: pointer;
 	background-color: rgb(218, 221, 228);
