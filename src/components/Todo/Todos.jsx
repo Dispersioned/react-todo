@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import TodosList from './TodosList';
 import TodosInput from './TodosInput';
+import TodosFilter from './TodosFilter';
 
 const TodosWrapper = styled.div`
 	font-family: 'Lato', sans-serif;
@@ -29,7 +30,7 @@ function Todos() {
 
 	const addNewTask = (text) => {
 		if (text === '') return;
-		setTodos([...todos, { text: text, id: Date.now(), isDone: false }]);
+		setTodos([...todos, { text: text, id: Date.now(), isDone: false, date: Date.now()}]);
 	};
 
 	const deleteTask = (task) => {
@@ -49,6 +50,7 @@ function Todos() {
 	return (
 		<TodosWrapper>
 			<TodosInput addNewTask={addNewTask} />
+			<TodosFilter />
 			<TodosList todos={todos} deleteTask={deleteTask} togleDoneStatus={togleDoneStatus} />
 		</TodosWrapper>
 	);

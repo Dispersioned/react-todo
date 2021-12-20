@@ -34,6 +34,10 @@ const TaskDeleteBtn = styled.div`
 	}
 `;
 
+const TaskContent = styled.div``;
+
+const TaskDate = styled.div``;
+
 function Task({ task, index, deleteTask, togleDoneStatus }) {
 	const onTaskDelete = (e) => {
 		deleteTask(task);
@@ -43,9 +47,15 @@ function Task({ task, index, deleteTask, togleDoneStatus }) {
 		togleDoneStatus(task);
 	};
 
+	let taskDate = new Date(+task.date)
+	// TODO: add exact time hh:ss and UTC choose option
+
 	return (
 		<TaskWrapper isDone={task.isDone}>
-			<TaskText onClick={onStatusChange}>{`${index + 1}. ${task.text}`}</TaskText>
+			<TaskContent>
+				<TaskText onClick={onStatusChange}>{`${index + 1}. ${task.text}`}</TaskText>
+				<TaskDate>{`${taskDate.getDate()}.${taskDate.getMonth()}.${taskDate.getFullYear()}`}</TaskDate>
+			</TaskContent>
 			<TaskDeleteBtn onClick={onTaskDelete}>
 				<img src={deleteIcon} alt='delete task' />
 			</TaskDeleteBtn>
